@@ -1,5 +1,7 @@
 const { MongoClient } = require("mongodb");
 
+const makeUserDb = require("./userDbHelper");
+
 // Create a new MongoClient
 const client = new MongoClient(process.env.MONGO_URL_CONNECTION, {
     useNewUrlParser: true,
@@ -16,5 +18,6 @@ async function makeDb(){
 }
 
 module.exports = Object.freeze({
-    makeDb
+    makeDb,
+    UserDb: makeUserDb({ makeDb })
 });
