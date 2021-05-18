@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,8 @@
   "devDependencies": {
     "faker": "^5.5.3",
     "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "joi": "^17.4.0"
   }
 }
