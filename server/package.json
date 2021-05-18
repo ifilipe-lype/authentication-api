@@ -4,16 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll --detectOpenHandles"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "dotenv": "^9.0.2",
     "faker": "^5.5.3",
     "jest": "^26.6.3"
   },
   "dependencies": {
-    "joi": "^17.4.0"
+    "bcryptjs": "^2.4.3",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.7"
   }
 }
