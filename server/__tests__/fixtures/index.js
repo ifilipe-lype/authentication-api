@@ -2,7 +2,6 @@ const faker = require("faker");
 
 function makeFakeUser(overrides){
     return {
-        id: "123",
         name: faker.name.findName() ,
         email: faker.internet.exampleEmail(),
         password: "H3lov4al1ndpwD", // Hard code a valid password, due to max callstack recur error
