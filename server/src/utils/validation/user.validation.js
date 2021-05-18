@@ -1,10 +1,13 @@
 const Joi = require("joi");
 const validate = require("./validate");
-const { password } = require("./custom.validation");
+const { password, url, phone } = require("./custom.validation");
 
 const createUser = Joi.object().keys({
+  photo: Joi.string(),
   name: Joi.string().required(),
+  bio: Joi.string(),
   email: Joi.string().required().email(),
+  phone: Joi.string(),
   password: Joi.string().required().custom(password),
 });
 

@@ -44,7 +44,11 @@ describe("makeUser", () => {
 
     it("Should be able to retrive user's info through helpers method", async () => {
         const user = await makeUser(fakeUser);
+        console.log({ fakeUser })
         expect(user.getName()).toBe(fakeUser.name);
+        expect(user.getPhoto()).toBe(fakeUser.photo);
+        expect(user.getPhone()).toBe(fakeUser.phone);
+        expect(user.getBio()).toBe(fakeUser.bio);
         expect(user.getEmail()).toBe(fakeUser.email);
         expect(user.getPassword()).toBe(fakeUser.password);
     });
