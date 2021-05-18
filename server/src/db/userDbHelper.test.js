@@ -1,7 +1,7 @@
 const makeUserDb = require("./userDbHelper");
 const { makeDb } = require("./index.js");
 const { makeFakeUser } = require("../../__tests__/fixtures");
-const { afterAll } = require("@jest/globals");
+const { afterAll, expect } = require("@jest/globals");
 
 describe("User database", () => {
     let UserDb;
@@ -34,4 +34,13 @@ describe("User database", () => {
         expect(user.email).toBe(fakeUser.email);
         expect(user.password).toBe(fakeUser.password);
     });
+
+    it("Should find an existing user by email", async () => {
+        const insertedUser = await UserDb.insertOne(fakeUser);
+        const foundUser = await UserDb.findByEmail(insertedUser.email);
+
+        expect(foundUser).toBeDefined();
+        expect(foundUser._id).toEqual(insertedUser._id);
+        expect(foundUser.email).toBe(insertedUser.email);
+    })
 })
