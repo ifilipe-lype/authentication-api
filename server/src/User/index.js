@@ -1,4 +1,4 @@
-const { validateCreateUser } = require("../utils/validation");
+const { userValidation } = require("../utils/validation");
 
 function buildMakeUser({ validateUser }){
     return async (userData) => {
@@ -17,5 +17,5 @@ function buildMakeUser({ validateUser }){
 }
 
 module.exports = buildMakeUser({
-    validateUser: validateCreateUser
+    validateUser: userValidation.create
 });
