@@ -2,7 +2,7 @@ const { phone } = require("faker");
 const { userValidation } = require("../utils/validation");
 
 function buildMakeUser({ validateUser }){
-    return async (userData) => {
+    return (userData) => {
         const {
             name,
             email,
@@ -10,7 +10,7 @@ function buildMakeUser({ validateUser }){
             bio,
             phone,
             password
-        } = await validateUser(userData);
+        } = validateUser(userData);
 
         return Object.freeze({
             getName: () => name,
