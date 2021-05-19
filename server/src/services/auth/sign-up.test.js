@@ -8,20 +8,17 @@ const { makeFakeUser } = require("../../../__tests__/fixtures");
 describe("sign-up", () => {
     let signUp;
     let fakeUser;
-    let db;
 
     beforeEach(async () => {
         fakeUser = makeFakeUser();
     });
 
     beforeAll(async () => {
-        db = await makeDb();
         signUp = makeSignUp({ UserDb, hashPassword, makeAuthToken });
-
-        await db.collection("users").deleteMany({});
     });
-
+    
     afterAll(async () => {
+        let db = await makeDb();
         await db.collection("users").deleteMany({});
     });
 

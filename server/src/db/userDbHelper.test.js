@@ -5,21 +5,18 @@ const { afterAll, expect } = require("@jest/globals");
 
 describe("User database", () => {
     let UserDb;
-    let db;
     let fakeUser;
 
     beforeAll(async () => {
-        db = await makeDb();
         UserDb = await makeUserDb({ makeDb });
-
-        await db.collection("users").deleteMany({});
     });
-
+    
     beforeEach(() => {
         fakeUser = makeFakeUser();
     });
-
+    
     afterAll(async () => {
+        let db = await makeDb();
         await db.collection("users").deleteMany({});
     })
 
