@@ -19,8 +19,7 @@ function makePostSignUp({ AuthService, AppError }){
                 return {
                     statusCode: 400,
                     body: {
-                        error: true,
-                        message: e.message
+                        error: e.message,
                     }
                 }
             }
