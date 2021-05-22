@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 const AppError = require("../../utils/AppError");
 
-async function makeAuthToken({ user, role }){
-    return jwt.sign({ user, role }, process.env.JWT_SECRET);
+async function makeAuthToken({ user }){
+    return jwt.sign({ user }, process.env.JWT_SECRET);
 }
 
 async function decodeAuthToken(token){
