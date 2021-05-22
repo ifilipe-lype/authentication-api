@@ -15,7 +15,7 @@ function makeUserDb({ makeDb }){
 
     async function findByEmail(email){
         const db = await makeDb();
-        const user = await db.collection(collection).findOne({ email});
+        const user = await db.collection(collection).findOne({ email });
 
         return user;
     }
