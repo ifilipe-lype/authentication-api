@@ -12,7 +12,7 @@ const app = Express();
 
 // Setup json encoding, and forms data
 app.use(Express.json());
-app.use(Express.urlencoded());
+app.use(Express.urlencoded({ extended: true }));
 
 // Setup routes.
 app.use("/api", routes);
