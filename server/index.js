@@ -1,7 +1,9 @@
-const path = require("path");
-require("dotenv").config({
-  path: process.env.NODE_ENV === "development" ? path.resolve(__dirname, ".env.dev") : path.resolve(__dirname, ".env")
-});
+
+if(process.env.NODE_ENV === "development"){
+  require("dotenv").config({
+    path: ".env.dev",
+  });
+}
 
 
 const app = require("./src/http/server");

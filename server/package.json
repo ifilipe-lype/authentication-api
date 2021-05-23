@@ -1,15 +1,19 @@
 {
-  "name": "server",
+  "name": "authentication-rest-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "a sample authentication app based on jwt build with express",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --detectOpenHandles",
-    "dev": "NODE_ENV=development nodemon index.js"
+    "dev": "NODE_ENV=development nodemon index.js",
+    "start": "node index",
+    "test": "jest --watchAll --detectOpenHandles"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["jwt", "auth", "nodejs"],
+  "author": "ifilipe-lype",
   "license": "ISC",
+  "engines": {
+    "node": "14.16.1"
+  },
   "devDependencies": {
     "dotenv": "^9.0.2",
     "faker": "^5.5.3",
