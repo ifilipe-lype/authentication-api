@@ -1,9 +1,11 @@
 const { UserDb } = require("../../db");
-const { hashPassword } = require("./password");
+const { hashPassword, isPasswordMatch } = require("./password");
 const { makeAuthToken } = require("./jwt");
 
 const makeSignUp = require("./sign-up");
+const makeSignIn = require("./sign-in");
 
 module.exports = Object.freeze({
     signUp: makeSignUp({ UserDb, hashPassword, makeAuthToken }),
+    signIn: makeSignIn({ UserDb, isPasswordMatch, generateAuthToken: makeAuthToken})
 });
