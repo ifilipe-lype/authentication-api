@@ -1,4 +1,3 @@
-const { phone } = require("faker");
 const { userValidation } = require("../utils/validation");
 
 function buildMakeUser({ validateUser }){
