@@ -5,12 +5,14 @@ if(process.env.NODE_ENV === "development"){
   });
 }
 
+const cors = require("cors");
 const Express = require("express");
 const routes = require("./routes");
 
 const app = Express();
 
 // Setup json encoding, and forms data
+app.use("*", cors());
 app.use(Express.json());
 app.use(Express.urlencoded({ extended: true }));
 
