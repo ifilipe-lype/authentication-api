@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 const makeUserDb = require("./userDbHelper");
 
@@ -19,5 +19,5 @@ async function makeDb(){
 
 module.exports = Object.freeze({
     makeDb,
-    UserDb: makeUserDb({ makeDb })
+    UserDb: makeUserDb({ makeDb, ObjectId })
 });

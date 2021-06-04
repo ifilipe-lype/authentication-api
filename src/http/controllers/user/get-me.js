@@ -1,17 +1,11 @@
-function makePostSignIn({ AuthService, AppError }){
+function makeGetMe({ UserService, AppError }){
     return async (requestObjt) => {
         try {
-            const {
-                email,
-                password,
-            } = requestObjt.body;
-    
-            const token = await AuthService.signIn({ email, password });
-
+            const { userId } = requestObjt;
+            const user = await UserService.getProfile({ id: userId });
             return {
-                headers: { "x-auth-token": `Bearer ${token}` },
                 statusCode: 200,
-                body: { token }
+                body: { user }
             }
         } catch (e) {
             if(e instanceof AppError){
@@ -28,4 +22,4 @@ function makePostSignIn({ AuthService, AppError }){
     }
 }
 
-module.exports = makePostSignIn;
+module.exports = makeGetMe;
