@@ -10,4 +10,14 @@ function filterProps(obj, filterHash){
     return filteredObj;
 }
 
-module.exports = Object.freeze({ filterProps });
+function filterFalsyProps(obj){
+    const newObj = {};
+
+    for(let prop of Object.keys(obj)){
+        if(obj[prop]) newObj[prop] = obj[prop];
+    }
+
+    return newObj;
+}
+
+module.exports = Object.freeze({ filterProps, filterFalsyProps });
