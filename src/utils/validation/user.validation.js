@@ -3,11 +3,11 @@ const validate = require("./validate");
 const { password, url, phone } = require("./custom.validation");
 
 const createUser = Joi.object().keys({
-  photo: Joi.string(),
   name: Joi.string().required(),
-  bio: Joi.string(),
+  bio: Joi.string().default("").allow(""),
+  photo: Joi.string().default("").allow(""),
+  phone: Joi.string().default("").allow(""),
   email: Joi.string().required().email(),
-  phone: Joi.string(),
   password: Joi.string().required().custom(password),
 });
 
