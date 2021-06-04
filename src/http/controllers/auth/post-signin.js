@@ -9,7 +9,7 @@ function makePostSignIn({ AuthService, AppError }){
             const token = await AuthService.signIn({ email, password });
 
             return {
-                headers: { "X-Auth-Token": `Bearer ${token}` },
+                headers: { "x-auth-token": `Bearer ${token}` },
                 statusCode: 200,
                 body: { token }
             }

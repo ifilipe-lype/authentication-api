@@ -10,7 +10,7 @@ function makePostSignUp({ AuthService, AppError }){
             const token = await AuthService.signUp({ name, email, password });
 
             return {
-                headers: { "X-Auth-Token": `Bearer ${token}` },
+                headers: { "x-auth-token": `Bearer ${token}` },
                 statusCode: 201,
                 body: { token }
             }
