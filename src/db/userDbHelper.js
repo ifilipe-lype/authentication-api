@@ -5,6 +5,7 @@ function makeUserDb({ makeDb, ObjectId }){
         findById,
         findByEmail,
         insertOne,
+        updateById,
     });
 
     async function insertOne(userData){
@@ -24,6 +25,17 @@ function makeUserDb({ makeDb, ObjectId }){
     async function findById(id){
         const db = await makeDb();
         return await db.collection(collection).findOne({ _id: new ObjectId(id) });
+    }
+
+    async function updateById(id, updates){
+        const db = await makeDb();
+        const result = await db.collection(collection).findOneAndUpdate({_id: new ObjectId(id)}, {
+            $set: {
+                ...updates
+            }
+        }, { returnDocument: "after"});
+
+        return result.value;
     }
 }
 
