@@ -1,6 +1,9 @@
+const { filterProps } = require("../../utils");
+
 function makeGetProfile({ UserDb }){
     return async ({ id }) => {
-        return await UserDb.findById(id);
+        const user = await UserDb.findById(id);
+        return filterProps(user, { password : true })
     }
 }
 
