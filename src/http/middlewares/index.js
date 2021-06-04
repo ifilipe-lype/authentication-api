@@ -5,7 +5,7 @@ function makeAuthMiddleware({ AuthService }) {
   return async (req, res, next) => {
     try {
     
-      const token = req.header("x-auth-token").split(" ")[1];
+      const token = req.header("x-auth-token") ? req.header("x-auth-token").split(" ")[1] : null;
       const { user } = await AuthService.getUserFromToken(token);
       req.userId = user;
 
