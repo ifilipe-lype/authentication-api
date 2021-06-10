@@ -1,5 +1,6 @@
 const AuthService = require("../../services/auth");
 const AppError = require("../../utils/AppError");
+const multipart = require("./multipart-file-parser");
 
 function makeAuthMiddleware({ AuthService }) {
   return async (req, res, next) => {
@@ -21,4 +22,5 @@ function makeAuthMiddleware({ AuthService }) {
 
 module.exports = Object.freeze({
     authMiddleware: makeAuthMiddleware({ AuthService }),
+    multipart,
 });
