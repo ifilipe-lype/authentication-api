@@ -8,5 +8,6 @@ const makeSignIn = require("./sign-in");
 module.exports = Object.freeze({
     signUp: makeSignUp({ UserDb, hashPassword, makeAuthToken }),
     signIn: makeSignIn({ UserDb, isPasswordMatch, generateAuthToken: makeAuthToken}),
-    getUserFromToken: decodeAuthToken
+    getUserFromToken: decodeAuthToken,
+    hashPassword,
 });
