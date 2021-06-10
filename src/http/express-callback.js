@@ -4,7 +4,8 @@ function makeExpressCallback(Controller) {
             body: req.body,
             query: req.query,
             params: req.params,
-            userId: req.userId
+            userId: req.userId,
+            file: req.file,
         }
         Controller(RequestOptions)
             .then(result => {
