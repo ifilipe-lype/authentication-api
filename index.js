@@ -10,7 +10,7 @@ const app = require("./src/http/server");
 
 const PORT = process.env.PORT || 3000;
 
-process.on("unhandledRejection", (err) => {
+process.on("uncaughtException", (err) => {
   console.log("Exiting with error : ", err);
   process.exit(1);
 })
