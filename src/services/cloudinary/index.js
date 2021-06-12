@@ -1,6 +1,5 @@
 const { v2: cloudinary } = require("cloudinary");
 const fs = require("fs");
-const AppError = require("../../utils/AppError");
 
 cloudinary.config({
 	cloud_name: process.env.CLOUD_NAME,
@@ -17,7 +16,7 @@ async function uploadWithStream(filePath){
             tags: 'image_upload_sample_app'
         }, (err, image) => {
             if (err){
-                return reject(new AppError("Couldn't upload image file!"));
+                return reject(new Error("Couldn't upload image file!"));
             }
             return resolve(image);
         });
