@@ -1,4 +1,4 @@
-function makePutMe({ UserService, AppError }){
+function makePutMe({ UserService, AppError, CloudinaryService }){
     return async (req) => {
         const id = req.userId;
         const {
@@ -6,11 +6,18 @@ function makePutMe({ UserService, AppError }){
             email,
             phone,
             password,
-            bio,
-            photo
+            bio
         } = req.body;
 
+        let { photo } = req.body;
+
         try {
+
+            if(req.file && req.file.photo){
+                const image = await CloudinaryService.uploadWithStream(req.file.photo.path);
+                photo = image.secure_url;
+            }
+
             const updatedUser = await UserService.updateUser(id, {
                 name, email, password, bio, photo, phone
             });
