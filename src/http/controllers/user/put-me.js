@@ -9,12 +9,14 @@ function makePutMe({ UserService, AppError, CloudinaryService }){
             bio
         } = req.body;
 
+        console.log({ body: req.body, files: req.file})
+
         let { photo } = req.body;
 
         try {
 
-            if(req.file && req.file.photo){
-                const image = await CloudinaryService.uploadWithStream(req.file.photo.path);
+            if(req.file && req.file.imageFile){
+                const image = await CloudinaryService.uploadWithStream(req.file.imageFile.path);
                 photo = image.secure_url;
             }
 
