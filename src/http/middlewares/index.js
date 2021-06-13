@@ -13,7 +13,7 @@ function makeAuthMiddleware({ AuthService }) {
       next();
     } catch (e) {
         if(e instanceof AppError){
-            return res.status(401).json({ error: "Access Dinied. Invalid authentication token!" });
+            return res.status(401).json({ error: "Access Denied. Invalid authentication token!" });
         }
         throw e;
     }
