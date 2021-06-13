@@ -13,9 +13,13 @@ async function uploadWithStream(filePath){
         const upload_stream = cloudinary.uploader.upload_stream({
             tags: 'image_upload_sample_app'
         }, (err, image) => {
+            // deletes local file.
+            fs.unlink(filePath, () => {});
+
             if (err){
                 return reject(new AppError("Couldn't upload image file!"));
             }
+
             return resolve(image);
         });
         
