@@ -9,8 +9,6 @@ function makePutMe({ UserService, AppError, CloudinaryService }){
             bio
         } = req.body;
 
-        console.log({ body: req.body, files: req.file})
-
         let { photo } = req.body;
 
         try {
