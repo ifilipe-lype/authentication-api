@@ -1,4 +1,4 @@
-# Tazker Rest-API
+# Authentication api
 
 A Json-Web-Token based rest api for authentication built on top of Expressjs + MongoDB.
 
