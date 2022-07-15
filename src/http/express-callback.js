@@ -14,7 +14,8 @@ function makeExpressCallback(Controller) {
             })
             .catch((e) => {
                 res.status(500).json({
-                    error: "Internal server error!"
+                    error: "Internal server error!",
+                    e
                 });
                 throw e;
             });
